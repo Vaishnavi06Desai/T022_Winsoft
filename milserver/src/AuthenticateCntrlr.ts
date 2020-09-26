@@ -21,7 +21,6 @@ class AuthenticateCntrlr {
     router.route('/')
       .post(AuthenticateCntrlr.addAuthenticate);
 
-
   }
 
   public static addAuthenticate(req: express.Request, res: express.Response): void {
