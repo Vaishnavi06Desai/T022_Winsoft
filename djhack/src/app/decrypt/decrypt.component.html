@@ -1,0 +1,23 @@
+<div class="main">
+    <div class="warning">
+        <div class="text_warn">
+            WARNING: THIS SITE CONTAINS CRUCIAL INFORMATION!!<br>{{decoded}}<br>{{infiltrated}}
+
+        </div>
+
+    </div>
+    <div class="encrypt">
+        <form [formGroup]="form" class="input">
+            <input type="text" class="ip" formControlName="message" placeholder="Enter the encrypted message">
+            <input type="text" class="ip" formControlName="key" placeholder="Enter the key">
+        </form>
+    </div>
+
+    <div class="decrypt">
+        <div class="decryptbutton" (click) = "submit()">
+            DECRYPT
+
+        </div>
+    </div>
+
+</div>

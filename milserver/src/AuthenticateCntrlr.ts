@@ -30,7 +30,7 @@ class AuthenticateCntrlr {
     if (authenticate.valid(req.body.userid, req.body.password)) {
       const token = authenticate.generateAccessToken(req.body.userid);
       authenticate.sessionlive(token);
-      res.send(token);
+      res.status(httpStatus.StatusCodes.OK).send({"token": token});
     }
     else {
       res.status(httpStatus.StatusCodes.UNAUTHORIZED).send('Unauthorized!');

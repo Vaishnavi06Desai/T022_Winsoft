@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-map',
@@ -44,12 +48,57 @@ export class MapComponent implements OnInit {
   dplace11: boolean = false;
 
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.iplace7 = true;
-    this.iplace4 = true;
-    this.dplace1 = true
+    // this.iplace7 = true;
+    // this.iplace4 = true;
+    // this.dplace1 = true
+    this.getnode({"target": ["J", "I", "K"]});
+  }
+
+  url = "http://localhost:5001/location";
+  getnode(infiltrated){
+    let header_node = {
+      headers: new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'))
+      };
+      // let input = new FormData();
+      // input.append("file", file);
+      // input.append("docType", data);
+    this.httpClient.post<any>(this.url, infiltrated, header_node).subscribe(
+      (res) => {console.log(res.target);
+                if(res.desired_node == "A") this.dplace4 = true;
+                else if(res.desired_node == "B") this.dplace1 = true;
+                else if(res.desired_node == "C") this.dplace5 = true;
+                else if(res.desired_node == "D") this.dplace9 = true;
+                else if(res.desired_node == "E") this.dplace2 = true;
+                else if(res.desired_node == "F") this.dplace6 = true;
+                else if(res.desired_node == "G") this.dplace10 = true;
+                else if(res.desired_node == "H") this.dplace7 = true;
+                else if(res.desired_node == "I") this.dplace3 = true;
+                else if(res.desired_node == "J") this.dplace11 = true;
+                else if(res.desired_node == "K") this.dplace8 = true;
+          
+                if(res.target.includes("A")) this.iplace4 = true;
+                if(res.target.includes("B")) this.iplace1 = true;
+                if(res.target.includes("C")) this.iplace5 = true;
+                if(res.target.includes("D")) this.iplace9 = true;
+                if(res.target.includes("E")) this.iplace2 = true;
+                if(res.target.includes("F")) this.iplace6 = true;
+                if(res.target.includes("G")) this.iplace10 = true;
+                if(res.target.includes("H")) this.iplace7 = true;
+                if(res.target.includes("I")) this.iplace3 = true;
+                if(res.target.includes("J")) this.iplace11 = true;
+                if(res.target.includes("K")) this.iplace8 = true;
+              },
+      (err) => {
+                  console.log(err); 
+                  // if(err.status == 0 || err.status == 500)
+                  // {this.setValuee(true)}
+                  // else if(err.status == 401)
+                  // {this.setValueu(true)}
+              }
+    );
   }
 
 }

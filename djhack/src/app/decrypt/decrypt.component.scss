@@ -1,0 +1,111 @@
+.main{
+    min-height: 100vh;
+    background-image: url("../../assets/images/bluebg.png");
+    //background-color: aquamarine;
+    display: flex;
+    background-size: 100% 100%;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 100vw;
+}
+
+.warning{
+    // border: salmon solid thick;
+    width: 95%;
+    // color: salmon;
+    text-align: center;
+    // font-size: large;
+    // border: 15px solid green;
+    // padding: 50px;
+    margin: 10px;
+}
+
+.text_warn{
+    // color: salmon;
+    color: rgb(236, 48, 15);
+    font-size: 250%;
+}
+
+.encrypt{
+    // border: salmon solid thick;
+    width: 95%;
+    // color: salmon;
+    text-align: center;
+    // font-size: large;
+    // border: 15px solid green;
+    // padding: 50px;
+    margin: 30px;
+    margin-top: 26%;
+
+
+}
+
+.ip{
+    height: 20%;
+        // width: 50%;
+        font-size: 150%;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        height: 5vh;
+        width: 20vw;
+        // padding: 30px;
+        margin-top: 1%;
+        // margin-left: ;
+        color: rgb(0,218,255);
+        background-color: rgb(0,0,0);
+        // align-self: center;
+        text-align: center;
+        display: inline-block;
+        // margin-right: auto;
+        // margin-left: auto;
+        width: 100%;
+        padding: 20px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+}
+
+
+.decrypt{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 2%;
+    justify-content: center;
+    height: 10vh;
+    width: 20vw;
+    margin-left: 47%;
+    // justify-self: center;
+    justify-content: space-evenly;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(0,0,0);
+    
+}
+
+.decryptbutton{
+      // border: blue solid;
+//   width: fit-content;
+  align-self: center;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 2% 5% ;
+  font-size: 200%;
+  height: 10vh;
+  color: rgb(0,218,255);
+  background-color: rgb(0,0,0);
+  height: 10vh;
+  width: 20vw;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+//   font-size: larger;
+
+}
+
+
+    
+
+
+

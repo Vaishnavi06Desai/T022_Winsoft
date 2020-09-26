@@ -24,7 +24,7 @@ export interface IHopsTot {
 }
 class Dijkstra {
 
-  public findnode(targets: string[]): [IHopsTot, number, string] {
+  public findnode(targets: string[]) {
 
     console.log(targets)
     let hopstot: IHopsTot = {};
@@ -53,7 +53,8 @@ class Dijkstra {
     }
     console.log(route.path("A", "L"));
 
-    return [hopstot, min, finnode];
+    // return [hopstot, min, finnode];
+    return {"desired_node": finnode, "target": targets}
   }
 }
 

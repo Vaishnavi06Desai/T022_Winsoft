@@ -9,16 +9,13 @@
         </div>
         <div class="loginfield">
             <form [formGroup]="form" class="input">
-                <input placeholder="Enter ID" formControlName="Email" type="email" class="ip" *ngIf="!milid">
+                <input placeholder="Enter ID" formControlName="userid" type="email" class="ip" *ngIf="!milid">
                 <div *ngIf="milid" class="errormsg">
-                    <input placeholder="Enter ID" formControlName="MilitaryID" type="text" class="ip iperror">
+                    <input placeholder="Enter ID" formControlName="userid" type="text" class="ip iperror">
                 </div>
-                <input placeholder="Enter Password" formControlName="Password" type="password" class="ip" *ngIf="!password">
-                <div *ngIf="password" class="errormsg">
-                    <input placeholder="Enter Password" formControlName="Password" type="password" class="ip iperror">
-                </div>
+                <input placeholder="Enter Password" formControlName="password" type="password" class="ip" *ngIf="!password">
             </form>
-            <div class="submit" (click)="validate()">
+            <div class="submit" (click)="submit()">
                 <div class="submitbutton">
                     Login
 

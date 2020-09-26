@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  url = "http://localhost:5000/authenticate";
+  url = "http://localhost:5001/authenticate";
   //url2 = "https://localhost:8080/upload";
   private invalid = new BehaviorSubject<boolean>(false);
   private error = new BehaviorSubject<boolean>(false);
@@ -19,16 +19,31 @@ export class AuthService {
   private response = new BehaviorSubject<any>(null);
 
 
-  setValuei(value) {
+  setValuei(value)
+  {
     this.invalid.next(value);
   }
 
-  getValuei() {
+  getValuei(){
     return this.invalid.asObservable();
   }
 
-  setValuee(value) {
+  setValuee(value)
+  {
     this.error.next(value);
+  }
+
+  getValuee(){
+    return this.error.asObservable();
+  }
+
+  setValuec(value)
+  {
+    this.change.next(value);
+  }
+
+  getValuec(){
+    return this.change.asObservable();
   }
 
   login(data) {
@@ -41,12 +56,12 @@ export class AuthService {
       (res) => {
         console.log(res);
         localStorage.setItem('token', res.token);
-        //this.setValuec(true)},
+        this.setValuec(true)},
         (err) => {
           console.log(err);
           if (err.status == 0 || err.status == 500) { this.setValuee(true); }
           else if (err.status == 401) { this.setValuei(true) }
         }
-      });
+      );
   }
 }

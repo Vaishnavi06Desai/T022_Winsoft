@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DecryptComponent } from './decrypt/decrypt.component';
 import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: "map",
     component: MapComponent
+  },
+  {
+    path: "decrypt",
+    component: DecryptComponent
   },
   {
     path: "",
