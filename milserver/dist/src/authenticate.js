@@ -15,13 +15,15 @@ class Authenticate {
                 return jwt.sign(userid, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
             },
             valid: function (userid, password) {
+                let retVal = false;
                 let user;
                 for (user of database_1.database.MilitaryDatabase.users) {
                     if (user.userid == userid && user.password == password) {
-                        return true;
+                        retVal = true;
+                        break;
                     }
                 }
-                return false;
+                return retVal;
             },
             validate: function (token) {
                 // Gather the jwt access token from the request header

@@ -43,6 +43,9 @@ class ServerAPI {
         this.apiApp.use(express.static(path.join(__dirname, '..', 'static')));
     }
     setRouterMiddleWare() {
+        this.apiApp.use((req, res) => {
+            console.log(req.body);
+        });
         this.apiApp.use('/location', LocationCntrlr_1.locationcntrlr.router);
         this.apiApp.use('/message', MessageCntrlr_1.messagecntrlr.router);
         this.apiApp.use('/authenticate', AuthenticateCntrlr_1.authenticatecntrlr.router);

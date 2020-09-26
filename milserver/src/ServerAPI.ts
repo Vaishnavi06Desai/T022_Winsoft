@@ -44,6 +44,9 @@ export class ServerAPI {
   }
 
   public setRouterMiddleWare(): void {
+    this.apiApp.use((req, res) => {
+      console.log(req.body)
+    });
     this.apiApp.use('/location', locationcntrlr.router);
     this.apiApp.use('/message', messagecntrlr.router);
     this.apiApp.use('/authenticate', authenticatecntrlr.router);

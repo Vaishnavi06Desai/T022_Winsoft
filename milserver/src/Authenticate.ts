@@ -14,13 +14,15 @@ public methods = {
   },
 
   valid: function (userid: string, password: string) {
+    let retVal: boolean = false;
     let user: IMDBUsers;
     for (user of db.MilitaryDatabase.users) {
       if (user.userid == userid && user.password == password) {
-        return true;
+        retVal = true;
+        break;
       }
     }
-    return false;
+    return retVal;
   },
 
   validate: function (token: string) {
