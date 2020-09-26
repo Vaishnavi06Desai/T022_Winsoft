@@ -1,22 +1,31 @@
 {
-  "name": "milserver",
+  "name": "NewProj",
   "version": "1.0.0",
-  "description": "Dummy Military Server for DJHackathon",
-  "main": "index.js",
+  "author": "Auto Generated",
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index",
+    "dev": "nodemon dist\\src\\ServerAPI.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vaishnavi Sunil Desai",
-  "license": "ISC",
   "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.7",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.8",
+    "@types/helmet": "0.0.48",
+    "@types/http-status-codes": "^1.2.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node-dijkstra": "^2.5.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "http": "0.0.1-security",
+    "http-status-codes": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
-    "node-dijkstra": "^2.5.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
+    "node-dijkstra": "^2.5.0",
+    "openapi-validator-middleware": "^3.1.1",
+    "path": "^0.12.7"
   }
 }
