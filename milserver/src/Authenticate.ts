@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 import * as jwt from "jsonwebtoken";
-import * as database from "./database"
+import {Database, database as db, IMDB, IMDBUsers} from "./database"
 
 // get config vars
 dotenv.config();
@@ -14,8 +14,8 @@ public methods = {
   },
 
   valid: function (userid: string, password: string) {
-    let user: any;
-    for (user of database.users) {
+    let user: IMDBUsers;
+    for (user of db.MilitaryDatabase.users) {
       if (user.userid == userid && user.password == password) {
         return true;
       }
@@ -28,21 +28,21 @@ public methods = {
     return jwt.verify(token, process.env.TOKEN_SECRET as string, (err: any, user: any) => {
       console.log(err)
       if (err) return false
-      if (database.insession.includes(token)) return true
+      if (db.MilitaryDatabase.insession.includes(token)) return true
       else return false
     })
 
   },
 
   sessionlive: function (token: string) {
-    database.insession.push(token);
-    console.log(database.insession);
+    db.MilitaryDatabase.insession.push(token);
+    console.log(db.MilitaryDatabase.insession);
   },
 
   logout: function (token: string) {
-    for (var i = 0; i < database.insession.length; i++) {
-      if (database.insession[i] === token) {
-        console.log(database.insession.splice(i, 1));
+    for (var i = 0; i < db.MilitaryDatabase.insession.length; i++) {
+      if (db.MilitaryDatabase.insession[i] === token) {
+        console.log(db.MilitaryDatabase.insession.splice(i, 1));
       }
     }
   }

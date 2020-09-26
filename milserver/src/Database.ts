@@ -1,6 +1,18 @@
 
-class Database {
-  public MilitaryDatabase = {
+
+export interface IMDBUsers {
+  userid: string;
+  password: string
+}
+export interface IMDB {
+  users: IMDBUsers[];
+  insession: string[];
+  places: string[];
+
+}
+
+export class Database {
+  public MilitaryDatabase: IMDB = {
     "users":
       [
         {
@@ -10,7 +22,7 @@ class Database {
       ],
 
     "insession": [
-
+      "idk"
     ],
 
     "places": [
@@ -29,4 +41,4 @@ class Database {
   }
 }
 
-export let database = new Database();
+export let database: Database = new Database();
