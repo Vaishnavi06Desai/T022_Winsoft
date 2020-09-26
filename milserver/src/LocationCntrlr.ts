@@ -1,6 +1,7 @@
 
 import * as express from 'express';
 import * as httpStatus from 'http-status-codes';
+import { authenticate } from './Authenticate';
 
 
 // import { Validator } from './validator';
@@ -17,7 +18,7 @@ class LocationCntrlr {
 
   public static setRouterMiddleWare(router: express.Router): void {
     router.route('/')
-      .post(LocationCntrlr.addLocation);
+      .post(authenticate.authenticateToken, LocationCntrlr.addLocation);
 
 
   }

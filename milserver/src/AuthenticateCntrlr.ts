@@ -28,9 +28,9 @@ class AuthenticateCntrlr {
     //console.log('addAuthenticate -', req.url);
     let body: credentials = req.body;
     console.log(body.userid)
-    if (authenticate.methods.valid(req.body.userid, req.body.password)) {
-      const token = authenticate.methods.generateAccessToken(req.body.userid);
-      authenticate.methods.sessionlive(token);
+    if (authenticate.valid(req.body.userid, req.body.password)) {
+      const token = authenticate.generateAccessToken(req.body.userid);
+      authenticate.sessionlive(token);
       res.send(token);
     }
     else {
