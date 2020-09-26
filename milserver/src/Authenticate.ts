@@ -1,6 +1,6 @@
 const dotenv = require("dotenv");
-const jwt = require("jsonwebtoken");
-// import * as jwt from "jsonwebtoken";
+//const jwt = require("jsonwebtoken");
+ import * as jwt from "jsonwebtoken";
 const database = require("./database")
 // get config vars
 dotenv.config();
@@ -10,7 +10,7 @@ public methods = {
   generateAccessToken: function (userid: string) {
     // expires after half and hour (1800 seconds = 30 minutes)
     console.log(process.env.TOKEN_SECRET);
-    return jwt.sign(userid, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+    return jwt.sign(userid, process.env.TOKEN_SECRET as string, { expiresIn: '1800s' });
   },
 
   valid: function (userid: string, password: string) {
@@ -25,7 +25,7 @@ public methods = {
 
   validate: function (token: string) {
     // Gather the jwt access token from the request header
-    return jwt.verify(token, process.env.TOKEN_SECRET, (err: any, user: any) => {
+    return jwt.verify(token, process.env.TOKEN_SECRET as string, (err: any, user: any) => {
       console.log(err)
       if (err) return false
       if (database.insession.includes(token)) return true

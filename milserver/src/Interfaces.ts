@@ -6,7 +6,7 @@ export interface I2 {
 // WIP
 }
 export interface credentials {
-    username: string;
+    userid: string;
     password: string;
 // WIP
 }

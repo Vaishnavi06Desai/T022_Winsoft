@@ -27,8 +27,8 @@ class AuthenticateCntrlr {
   public static addAuthenticate(req: express.Request, res: express.Response): void {
     //console.log('addAuthenticate -', req.url);
     let body: credentials = req.body;
-    console.log(body.username)
-    if (authenticate.methods.valid(req.body.username, req.body.password)) {
+    console.log(body.userid)
+    if (authenticate.methods.valid(req.body.userid, req.body.password)) {
       const token = authenticate.methods.generateAccessToken(req.body.userid);
       authenticate.methods.sessionlive(token);
       res.send(token);

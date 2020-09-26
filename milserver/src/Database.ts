@@ -9,7 +9,7 @@ public MilitaryDatabase = {
         ],
 
     "insession": [
-
+        "idk"
     ],
 
     "places": [
