@@ -10,7 +10,8 @@ public methods = {
   generateAccessToken: function (userid: string) {
     // expires after half and hour (1800 seconds = 30 minutes)
     console.log(process.env.TOKEN_SECRET);
-    return jwt.sign(userid, process.env.TOKEN_SECRET as string, { expiresIn: '1800s' });
+    // return jwt.sign(userid, {payload: "process.env.TOKEN_SECRET as string"}, { expiresIn: '1h' });
+    return jwt.sign({payload:userid},  "process.env.TOKEN_SECRET as string", { expiresIn: '1h' });
   },
 
   valid: function (userid: string, password: string) {

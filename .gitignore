@@ -2,7 +2,7 @@
 
 # compiled output
 milserver/dist/
-./milserver/node_modules/
+**/node_modules/
 .*/
 
 /dist
