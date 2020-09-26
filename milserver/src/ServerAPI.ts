@@ -10,6 +10,7 @@ import * as path from 'path';
 import { InputValidationError } from 'openapi-validator-middleware';
 import { configuration } from './appConfig';
 import { locationcntrlr } from './LocationCntrlr';
+import { logoutcntrlr } from './LogoutCntrlr';
 import { messagecntrlr } from './MessageCntrlr';
 import { authenticatecntrlr } from './AuthenticateCntrlr';
 
@@ -51,6 +52,7 @@ export class ServerAPI {
     this.apiApp.use('/location', locationcntrlr.router);
     this.apiApp.use('/message', messagecntrlr.router);
     this.apiApp.use('/authenticate', authenticatecntrlr.router);
+    this.apiApp.use('/logout', logoutcntrlr.router);
     this.apiApp.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
       if (err instanceof InputValidationError) {
         return res.status(400).json({ more_info: JSON.stringify(err.errors) });

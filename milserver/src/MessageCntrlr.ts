@@ -2,8 +2,7 @@
 import * as express from 'express';
 import * as httpStatus from 'http-status-codes';
 import { authenticate } from './Authenticate';
-const decrypt = require('./decrypt')
-
+import {decrypt} from './decrypt'
 
 
 // import { Validator } from './validator';

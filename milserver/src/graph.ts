@@ -57,4 +57,4 @@ class Dijkstra {
   }
 }
 
-export let dijkstra = new Dijkstra;
+export let dijkstra = new Dijkstra();
