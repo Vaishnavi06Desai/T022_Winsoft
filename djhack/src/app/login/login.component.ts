@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     this.form.get('userid').setValue('');
     this.form.get('password').setValue('');
     this.auth.login(data);
-    this.auth.getValuec().subscribe(res => { if (res == true) { this.router.navigate(['/map']); } });
+    this.auth.getValuec().subscribe(res => { if (res == true) { this.router.navigate(['/decrypt']); } });
   }
 
 }

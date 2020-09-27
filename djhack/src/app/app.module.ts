@@ -10,13 +10,15 @@ import { MapComponent } from './map/map.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DecryptComponent } from './decrypt/decrypt.component';
+import { UserinputComponent } from './userinput/userinput.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MapComponent,
-    DecryptComponent
+    DecryptComponent,
+    UserinputComponent
   ],
   imports: [
     BrowserModule,

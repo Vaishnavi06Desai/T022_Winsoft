@@ -10,6 +10,8 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 export class AppComponent {
   title = 'djhack';
   url = "http://localhost:5001/logout";
+  messageapp = "";
+  placesapp = "";
 
   constructor(private auth: AuthService, private httpClient: HttpClient) { }
 

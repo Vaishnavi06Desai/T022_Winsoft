@@ -4,6 +4,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { AppComponent } from '../app.component';
+
 
 @Component({
   selector: 'app-decrypt',
@@ -12,7 +14,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DecryptComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private router: Router, private auth: AuthService) { }
+  constructor(private httpClient: HttpClient, private router: Router, private auth: AuthService, private app: AppComponent) { }
 
 
   decoded: "";
@@ -46,7 +48,7 @@ form = new FormGroup({
       // input.append("file", file);
       // input.append("docType", data);
     this.httpClient.post<any>(this.url, decstring, header_node).subscribe(
-      (res) => {console.log(res); this.decoded = res.message; this.infiltrated = res.infiltrated},
+      (res) => {console.log(res); this.decoded = res.message; this.infiltrated = res.infiltrated; this.app.messageapp = res.message; this.app.placesapp = res.infiltrated ;this.router.navigate(['/userinput'])},
       (err) => {
                   console.log(err); 
                   // if(err.status == 0 || err.status == 500)
