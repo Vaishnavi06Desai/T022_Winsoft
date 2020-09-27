@@ -1,5 +1,4 @@
 
-
 import * as express from 'express';
 import * as httpStatus from 'http-status-codes';
 import { authenticate } from './Authenticate';
@@ -21,6 +20,8 @@ class AuthenticateCntrlr {
     router.route('/')
       .post(AuthenticateCntrlr.addAuthenticate);
 
+    router.route('/validate')
+      .get(authenticate.authenticateToken);
   }
 
   public static addAuthenticate(req: express.Request, res: express.Response): void {

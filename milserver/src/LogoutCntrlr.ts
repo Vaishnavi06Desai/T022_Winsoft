@@ -27,11 +27,11 @@ class LogoutCntrlr {
     console.log('addLogout -', req.url);
     //let body: I1 = req.body;
     const authHeader = req.headers['authorization']
-    const token:string = (authHeader && authHeader.split(' ')[1]) || ""
+    const token: string = (authHeader && authHeader.split(' ')[1]) || ""
     authenticate.logout(token);
-    res.send("success");
-    
-    res.status(httpStatus.INTERNAL_SERVER_ERROR).send('NOT IMPLEMENTED');
+    res.status(httpStatus.StatusCodes.OK).send("Logged out");
+
+    //res.status(httpStatus.INTERNAL_SERVER_ERROR).send('NOT IMPLEMENTED');
 
   }
 

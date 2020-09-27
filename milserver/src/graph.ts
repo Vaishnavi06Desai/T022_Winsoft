@@ -1,5 +1,6 @@
 
 import Graph from 'node-dijkstra';
+import { IBases } from './database';
 // const Graph = require('node-dijkstra')
 
 const route = new Graph()
@@ -24,7 +25,7 @@ export interface IHopsTot {
 }
 class Dijkstra {
 
-  public findnode(targets: string[]) {
+  public findnode(targets: string[], exBases: string[]): IBases {
 
     console.log(targets)
     let hopstot: IHopsTot = {};
@@ -54,7 +55,7 @@ class Dijkstra {
     console.log(route.path("A", "L"));
 
     // return [hopstot, min, finnode];
-    return {"desired_node": finnode, "target": targets}
+    return {"us": finnode, "them": targets}
   }
 }
 
