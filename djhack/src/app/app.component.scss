@@ -2,6 +2,30 @@
     height: 5vh;
     background-color: aqua;
     width: 100%;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.message{
+    flex-basis: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logoutbutton{
+
+    flex-basis: 10%;
+    background-color: black;
+    justify-content: space-between;
+    margin: 2px 3px 2px 5%;
+    font-size: 150%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .main{
