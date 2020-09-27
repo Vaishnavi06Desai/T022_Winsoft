@@ -2,7 +2,8 @@
 import * as express from 'express';
 import * as httpStatus from 'http-status-codes';
 import { authenticate } from './Authenticate';
-import {decrypt} from './decrypt'
+import { decrypt } from './decrypt'
+import { Database, database as db, IMDBUsers } from "./database"
 
 
 // import { Validator } from './validator';
@@ -19,8 +20,8 @@ class MessageCntrlr {
 
   public static setRouterMiddleWare(router: express.Router): void {
     router.route('/')
-      .post(MessageCntrlr.addMessage);
-
+      .post(authenticate.authenticateToken, MessageCntrlr.addMessage)
+      .get(authenticate.authenticateToken, MessageCntrlr.getMessage);
 
   }
 
@@ -29,12 +30,19 @@ class MessageCntrlr {
     //let body: I2 = req.body;
     console.log("hii")
     console.log(req.body.message, req.body.key);
-    res.send(decrypt.decrypt(req.body.message, req.body.key));
 
-    res.status(httpStatus.INTERNAL_SERVER_ERROR).send('NOT IMPLEMENTED');
+    db.MilitaryDatabase.encMsg.key = req.body.key;
+    db.MilitaryDatabase.encMsg.msg = req.body.message;
+
+    res.status(httpStatus.StatusCodes.OK).send(decrypt.decrypt(req.body.message, req.body.key));
+
+    // res.status(httpStatus.INTERNAL_SERVER_ERROR).send('NOT IMPLEMENTED');
 
   }
 
+  public static getMessage(req: express.Request, res: express.Response): void {
+    res.send(decrypt.decrypt(db.MilitaryDatabase.encMsg.msg, db.MilitaryDatabase.encMsg.key));
+  }
 
 }
 

@@ -8,5 +8,4 @@ export interface I2 {
 export interface credentials {
     userid: string;
     password: string;
-// WIP
 }

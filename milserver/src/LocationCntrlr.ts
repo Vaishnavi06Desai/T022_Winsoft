@@ -3,7 +3,7 @@ import * as express from 'express';
 import * as httpStatus from 'http-status-codes';
 import { authenticate } from './Authenticate';
 import { dijkstra as graph } from './graph';
-
+import { Database, database as db, IMDBUsers } from "./database"
 
 // import { Validator } from './validator';
 import { I1 } from './interfaces';
@@ -19,19 +19,24 @@ class LocationCntrlr {
 
   public static setRouterMiddleWare(router: express.Router): void {
     router.route('/')
-      .post(LocationCntrlr.addLocation);
+      .post(authenticate.authenticateToken, LocationCntrlr.addLocations)
+      .get(authenticate.authenticateToken, LocationCntrlr.getLocations);
 
 
   }
+  static getLocations(req: express.Request, res: express.Response) {
+    res.status(httpStatus.StatusCodes.OK).send(db.MilitaryDatabase.bases);
+  }
 
-  public static addLocation(req: express.Request, res: express.Response): void {
+  public static addLocations(req: express.Request, res: express.Response): void {
     console.log('addLocation -', req.url);
-    //let body: I1 = req.body;
-    res.send(graph.findnode(req.body.target));
-    res.status(httpStatus.INTERNAL_SERVER_ERROR).send('NOT IMPLEMENTED');
+
+    db.MilitaryDatabase.bases = graph.findnode(req.body.target, []);
+
+    res.status(httpStatus.StatusCodes.OK).send(db.MilitaryDatabase.bases);
+    // res.status(httpStatus.INTERNAL_SERVER_ERROR).send('NOT IMPLEMENTED');
 
   }
-
 
 }
 
