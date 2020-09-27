@@ -1,6 +1,6 @@
 .navbar{
     height: 5vh;
-    background-color: rgb(37, 132, 200);
+    background-color: rgb(1, 100, 1);
     width: 100%;
     display: flex;
     font-family: 'Courier New', Courier, monospace;
@@ -12,6 +12,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: rgb(255, 0, 0);
+    font-size: 200%;
+    font-weight: bold;
 }
 
 .logoutbutton{
