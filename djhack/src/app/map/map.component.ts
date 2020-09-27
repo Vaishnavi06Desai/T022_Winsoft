@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-map',
@@ -49,18 +50,20 @@ export class MapComponent implements OnInit {
   dplace11: boolean = false;
 
 
-  constructor(private httpClient: HttpClient, private auth: AuthService) { }
+  constructor(private httpClient: HttpClient, private auth: AuthService, private app: AppComponent) { }
 
   ngOnInit(): void {
     // this.iplace7 = true;
     // this.iplace4 = true;
     // this.dplace1 = true
     this.auth.setValuel(false);
-    this.getnode({"target": ["A", "B", "C"]});
+    //this.getnode({"target": ["A", "B", "C"]});
+    this.getnode(this.app.targetapp);
     
   }
 
   url = "http://localhost:5001/location";
+
   getnode(infiltrated){
     let header_node = {
       headers: new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'))
@@ -69,30 +72,30 @@ export class MapComponent implements OnInit {
       // input.append("file", file);
       // input.append("docType", data);
     this.httpClient.post<any>(this.url, infiltrated, header_node).subscribe(
-      (res) => {console.log(res.target);
-                if(res.desired_node == "A") this.dplace4 = true;
-                else if(res.desired_node == "B") this.dplace1 = true;
-                else if(res.desired_node == "C") this.dplace5 = true;
-                else if(res.desired_node == "D") this.dplace9 = true;
-                else if(res.desired_node == "E") this.dplace2 = true;
-                else if(res.desired_node == "F") this.dplace6 = true;
-                else if(res.desired_node == "G") this.dplace10 = true;
-                else if(res.desired_node == "H") this.dplace7 = true;
-                else if(res.desired_node == "I") this.dplace3 = true;
-                else if(res.desired_node == "J") this.dplace11 = true;
-                else if(res.desired_node == "K") this.dplace8 = true;
+      (res) => {console.log(res.them);
+                if(res.us == "A") this.dplace4 = true;
+                else if(res.us == "B") this.dplace1 = true;
+                else if(res.us == "C") this.dplace5 = true;
+                else if(res.us == "D") this.dplace9 = true;
+                else if(res.us == "E") this.dplace2 = true;
+                else if(res.us == "F") this.dplace6 = true;
+                else if(res.us == "G") this.dplace10 = true;
+                else if(res.us == "H") this.dplace7 = true;
+                else if(res.us == "I") this.dplace3 = true;
+                else if(res.us == "J") this.dplace11 = true;
+                else if(res.us == "K") this.dplace8 = true;
           
-                if(res.target.includes("A")) this.iplace4 = true;
-                if(res.target.includes("B")) this.iplace1 = true;
-                if(res.target.includes("C")) this.iplace5 = true;
-                if(res.target.includes("D")) this.iplace9 = true;
-                if(res.target.includes("E")) this.iplace2 = true;
-                if(res.target.includes("F")) this.iplace6 = true;
-                if(res.target.includes("G")) this.iplace10 = true;
-                if(res.target.includes("H")) this.iplace7 = true;
-                if(res.target.includes("I")) this.iplace3 = true;
-                if(res.target.includes("J")) this.iplace11 = true;
-                if(res.target.includes("K")) this.iplace8 = true;
+                if(res.them.includes("A")) this.iplace4 = true;
+                if(res.them.includes("B")) this.iplace1 = true;
+                if(res.them.includes("C")) this.iplace5 = true;
+                if(res.them.includes("D")) this.iplace9 = true;
+                if(res.them.includes("E")) this.iplace2 = true;
+                if(res.them.includes("F")) this.iplace6 = true;
+                if(res.them.includes("G")) this.iplace10 = true;
+                if(res.them.includes("H")) this.iplace7 = true;
+                if(res.them.includes("I")) this.iplace3 = true;
+                if(res.them.includes("J")) this.iplace11 = true;
+                if(res.them.includes("K")) this.iplace8 = true;
               },
       (err) => {
                   console.log(err); 

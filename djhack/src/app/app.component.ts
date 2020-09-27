@@ -12,6 +12,8 @@ export class AppComponent {
   url = "http://localhost:5001/logout";
   messageapp = "";
   placesapp = "";
+  targetapp = {};
+  desiresapp = "";
 
   constructor(private auth: AuthService, private httpClient: HttpClient) { }
 

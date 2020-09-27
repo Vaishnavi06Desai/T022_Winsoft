@@ -16,7 +16,6 @@ route.addNode('H', { 'E': 1, 'G': 1, 'I': 1, 'J': 1 })
 route.addNode('I', { 'H': 1, 'K': 1 })
 route.addNode('J', { 'H': 1, 'K': 1 })
 route.addNode('K', { 'I': 1, 'J': 1 })
-route.addNode('L', {})
 
 const nodes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K']
 

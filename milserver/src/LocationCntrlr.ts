@@ -33,7 +33,8 @@ class LocationCntrlr {
 
     db.MilitaryDatabase.bases = graph.findnode(req.body.target, []);
 
-    res.status(httpStatus.StatusCodes.OK).send(db.MilitaryDatabase.bases);
+    //res.status(httpStatus.StatusCodes.OK).send(db.MilitaryDatabase.bases);
+    res.status(httpStatus.StatusCodes.OK).send(graph.findnode(req.body.target, []));
     // res.status(httpStatus.INTERNAL_SERVER_ERROR).send('NOT IMPLEMENTED');
 
   }

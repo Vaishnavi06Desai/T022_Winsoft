@@ -42,6 +42,7 @@ class MessageCntrlr {
 
   public static getMessage(req: express.Request, res: express.Response): void {
     res.send(decrypt.decrypt(db.MilitaryDatabase.encMsg.msg, db.MilitaryDatabase.encMsg.key));
+    res.status(httpStatus.StatusCodes.OK).send(decrypt.decrypt(req.body.message, req.body.key));
   }
 
 }

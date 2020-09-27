@@ -20,11 +20,25 @@ export class DecryptComponent implements OnInit {
   decoded: "";
   infiltrated: "";
   ngOnInit(): void {
-    if(localStorage.getItem('token') == "null")
+    if(localStorage.getItem('token') != "null")
     {
-      this.router.navigate(['/login']);
+      let header_node = {
+        headers: new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'))
+        };
+      this.httpClient.get<any>("http://localhost:5001/authenticate/validate", header_node).subscribe(
+        (res) => {console.log(res);},
+        (err) => {
+  
+                    console.log(err); 
+                    if(err.status == 401)
+                     {this.router.navigate(['/login'])}
+                }
+      );
     }
-    this.auth.setValuel(false);
+
+    else{
+      this.router.navigate(['/login'])
+    }
   }
 
   url = "http://localhost:5001/message";
@@ -50,11 +64,12 @@ form = new FormGroup({
     this.httpClient.post<any>(this.url, decstring, header_node).subscribe(
       (res) => {console.log(res); this.decoded = res.message; this.infiltrated = res.infiltrated; this.app.messageapp = res.message; this.app.placesapp = res.infiltrated ;this.router.navigate(['/userinput'])},
       (err) => {
+
                   console.log(err); 
                   // if(err.status == 0 || err.status == 500)
                   // {this.setValuee(true)}
-                  // else if(err.status == 401)
-                  // {this.setValueu(true)}
+                  if(err.status == 401)
+                   {this.router.navigate(['/login'])}
               }
     );
   }
