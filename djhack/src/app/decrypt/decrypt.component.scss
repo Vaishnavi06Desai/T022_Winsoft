@@ -1,12 +1,12 @@
 .main{
-    min-height: 100vh;
+    height: 95vh;
     background-image: url("../../assets/images/bluebg.png");
     //background-color: aquamarine;
     display: flex;
     background-size: 100% 100%;
     flex-direction: column;
     justify-content: center;
-    min-width: 100vw;
+    //min-width: 100vw;
 }
 
 .warning{
