@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-map',
@@ -48,13 +49,15 @@ export class MapComponent implements OnInit {
   dplace11: boolean = false;
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private auth: AuthService) { }
 
   ngOnInit(): void {
     // this.iplace7 = true;
     // this.iplace4 = true;
     // this.dplace1 = true
+    this.auth.setValuel(false);
     this.getnode({"target": ["A", "B", "C"]});
+    
   }
 
   url = "http://localhost:5001/location";

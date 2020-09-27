@@ -2,9 +2,9 @@
     <div class = "message">
         You are accessing a military application! Any malpractise will not go unnoticed!
     </div>
-    <div class = "logoutbutton">
+    <a routerLink="/login" class = "logoutbutton" (click) = "logout()" *ngIf = "!logoutbut">
         Logout
-    </div>
+    </a>
 </div>
 <div class = "main">
 <router-outlet></router-outlet>

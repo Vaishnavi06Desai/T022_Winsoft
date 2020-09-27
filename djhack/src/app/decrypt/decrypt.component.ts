@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-decrypt',
@@ -11,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DecryptComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router, private auth: AuthService) { }
 
 
   decoded: "";
@@ -21,6 +22,7 @@ export class DecryptComponent implements OnInit {
     {
       this.router.navigate(['/login']);
     }
+    this.auth.setValuel(false);
   }
 
   url = "http://localhost:5001/message";

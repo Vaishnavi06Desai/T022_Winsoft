@@ -12,6 +12,7 @@ export class AuthService {
   url = "http://localhost:5001/authenticate";
   //url2 = "https://localhost:8080/upload";
   private invalid = new BehaviorSubject<boolean>(false);
+  private logout = new BehaviorSubject<boolean>(false);
   private error = new BehaviorSubject<boolean>(false);
   private change = new BehaviorSubject<boolean>(false);
   private unauth = new BehaviorSubject<boolean>(false);
@@ -44,6 +45,15 @@ export class AuthService {
 
   getValuec(){
     return this.change.asObservable();
+  }
+
+  setValuel(value)
+  {
+    this.logout.next(value);
+  }
+
+  getValuel(){
+    return this.logout.asObservable();
   }
 
   login(data) {

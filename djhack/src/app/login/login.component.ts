@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('token', null);
     this.auth.setValuei(false);
     this.auth.getValuei().subscribe(res => { this.invalid = res;});
+    this.auth.setValuel(true);
   }
 
   validate(){
