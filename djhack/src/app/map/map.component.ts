@@ -54,7 +54,7 @@ export class MapComponent implements OnInit {
     // this.iplace7 = true;
     // this.iplace4 = true;
     // this.dplace1 = true
-    this.getnode({"target": ["J", "I", "K"]});
+    this.getnode({"target": ["A", "B", "C"]});
   }
 
   url = "http://localhost:5001/location";

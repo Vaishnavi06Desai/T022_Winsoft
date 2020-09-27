@@ -11,13 +11,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DecryptComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
 
   decoded: "";
   infiltrated: "";
   ngOnInit(): void {
-    
+    if(localStorage.getItem('token') == "null")
+    {
+      this.router.navigate(['/login']);
+    }
   }
 
   url = "http://localhost:5001/message";
