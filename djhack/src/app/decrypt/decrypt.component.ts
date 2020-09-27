@@ -17,49 +17,51 @@ export class DecryptComponent implements OnInit {
   constructor(private httpClient: HttpClient, private router: Router, private auth: AuthService, private app: AppComponent) { }
 
 
-  decoded: "";
-  infiltrated: "";
+  decoded: '';
+  infiltrated: '';
+
+
+  url = 'http://localhost:5001/message';
+
+  decstring = {
+    'message': 'Cnwvtus KuaiTaa rlodeeurethn  an Ia_mrhs baer oag ndC_a aeoat dLj lLdio_me  p  hagZLngan _',
+    'key': 'delhi'
+  };
+
+
+  form = new FormGroup({
+    message: new FormControl(''),
+    key: new FormControl('')
+  });
+
   ngOnInit(): void {
-    if(localStorage.getItem('token') == "null")
-    {
+    if (localStorage.getItem('token') === 'null') {
       this.router.navigate(['/login']);
     }
     this.auth.setValuel(false);
   }
 
-  url = "http://localhost:5001/message";
 
-  decstring = {
-    "message": "Cnwvtus KuaiTaa rlodeeurethn  an Ia_mrhs baer oag ndC_a aeoat dLj lLdio_me  p  hagZLngan _",
-    "key": "delhi"
-}
-
-form = new FormGroup({
-  message: new FormControl(''),
-  key: new FormControl('')
- })
-
-
-  decryptstring(decstring){
+  decryptstring(decstring) {
     let header_node = {
-      headers: new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'))
-      };
-      // let input = new FormData();
-      // input.append("file", file);
-      // input.append("docType", data);
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+    };
+    // let input = new FormData();
+    // input.append("file", file);
+    // input.append("docType", data);
     this.httpClient.post<any>(this.url, decstring, header_node).subscribe(
-      (res) => {console.log(res); this.decoded = res.message; this.infiltrated = res.infiltrated; this.app.messageapp = res.message; this.app.placesapp = res.infiltrated ;this.router.navigate(['/userinput'])},
+      (res) => { console.log(res); this.decoded = res.message; this.infiltrated = res.infiltrated; this.app.messageapp = res.message; this.app.placesapp = res.infiltrated; this.router.navigate(['/userinput']); },
       (err) => {
-                  console.log(err); 
-                  // if(err.status == 0 || err.status == 500)
-                  // {this.setValuee(true)}
-                  // else if(err.status == 401)
-                  // {this.setValueu(true)}
-              }
+        console.log(err);
+        // if(err.status == 0 || err.status == 500)
+        // {this.setValuee(true)}
+        // else if(err.status == 401)
+        // {this.setValueu(true)}
+      }
     );
   }
 
-  submit(){
+  submit() {
     this.decryptstring(this.form.value);
   }
 }
