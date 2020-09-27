@@ -1,23 +1,13 @@
 <div class="main">
-    <div class="warning">
-        <div class="text_warn">
-            WARNING: THIS SITE CONTAINS CONFIDENTIAL INFORMATION!!<br>{{decoded}}<br>{{infiltrated}}
-
-        </div>
-
-    </div>
     <div class="encrypt">
-        <form [formGroup]="form" class="input">
-            <input type="text" class="ip" formControlName="message" placeholder="Enter the encrypted message">
-            <input type="text" class="ip" formControlName="key" placeholder="Enter the key">
-        </form>
+        <textarea  type="text" class="ip" placeholder="Enter the encrypted message" style="color: aqua;"></textarea>
+        <input type="text" class="key" placeholder="Key" style="color: aqua;">
     </div>
 
     <div class="decrypt">
-        <div class="decryptbutton" (click) = "submit()">
+        <button class="decryptbutton button">
             DECRYPT
-
-        </div>
+        </button>
     </div>
-
 </div>
+
