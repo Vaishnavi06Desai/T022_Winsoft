@@ -13,16 +13,23 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserinputComponent implements OnInit {
 
-  constructor(private app: AppComponent, private httpClient: HttpClient, private auth: AuthService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(public app: AppComponent, private httpClient: HttpClient, private auth: AuthService, private router: Router, private formBuilder: FormBuilder) {this.names = [
+    // [1, 2], 
+    // [3, 4],
+    // [5, 6],
+    'a','b','c','d'
+    
+]; }
 
   url = "http://localhost:5001/location"
 
   //form: FormGroup;
+  public names: any[];
 
   form = this.formBuilder.group({
-    place1: new FormControl(true),
+    place1: new FormControl(false),
     place2: new FormControl(false),
-    place3: new FormControl(true),
+    place3: new FormControl(false),
     place4: new FormControl(false),
     place5: new FormControl(false),
     place6: new FormControl(false),
@@ -40,15 +47,17 @@ export class UserinputComponent implements OnInit {
   });
 
   baseList: any = [
-    { id: 1, name: 'Tanglang La' },
-    { id: 2, name: 'Khardung La' },
-    { id: 3, name: 'Sasser Pass' },
-    { id: 4, name: 'Zoji Lam' },
-    { id: 5, name: 'Rezang La' },
-    { id: 6, name: 'Marsimik La' },
-    { id: 7, name: 'Gyong La' },
-    { id: 8, name: 'Indira Col' },
-    { id: 9, name: 'Eemsi La' }
+    { id: "A", name: 'Khardung La' },
+    { id: "B", name: 'Lach' },
+    { id: "C", name: 'Sasser Pass' },
+    { id: "D", name: 'Gyon' },
+    { id: "E", name: 'Sia' },
+    { id: "F", name: 'Zoji La' },
+    { id: "G", name: 'Indira Col' },
+    { id: "H", name: 'Rezang La' },
+    { id: "I", name: 'Tanglung La' },
+    { id: "J", name: 'Pensi La' },
+    { id: "K", name: 'Mersmil La' }
 
   ];
 
@@ -72,7 +81,7 @@ export class UserinputComponent implements OnInit {
     else{
       this.router.navigate(['/login'])
     }
-    this.continue();
+    //this.continue();
   }
 
   continue(){
@@ -134,7 +143,7 @@ export class UserinputComponent implements OnInit {
   }
 
   onCheckboxChange(e) {
-    // const website: FormArray = this.form.get('website') as FormArray;
+    //  const website: FormArray = this.form.get('website') as FormArray;
 
     // if (e.target.checked) {
     //   website.push(new FormControl(e.target.value));
