@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'djhack';
   url = "http://localhost:5001/logout";
   messageapp = "";
-  placesapp = "";
+  placesapp: string[] = [];
   targetapp = {};
   desiresapp = "";
 

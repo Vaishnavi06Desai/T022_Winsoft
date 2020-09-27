@@ -4,7 +4,7 @@
 
 .main{
     min-height: 100vh;
-    background-image: url("../../assets/images/military3.png");
+    background-image: url("../../assets/images/login.png");
     background-size: 100% 100%;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,8 @@
     font-size: 150%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: black;
-    color: rgb(55, 255, 5);
+    // color: rgb(55, 255, 5);
+    color: aqua;
 }
 
 .errormsg{
@@ -107,7 +108,8 @@
     border-radius: 10px;
     box-shadow: 2px 2px 5px  black;
     cursor: pointer;
-    color: rgb(55, 255, 5);
+    //color: rgb(55, 255, 5);
+    color: aqua;
     background-color: black;
 
 }

@@ -13,13 +13,9 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserinputComponent implements OnInit {
 
-  constructor(public app: AppComponent, private httpClient: HttpClient, private auth: AuthService, private router: Router, private formBuilder: FormBuilder) {this.names = [
-    // [1, 2], 
-    // [3, 4],
-    // [5, 6],
-    'a','b','c','d'
-    
-]; }
+  constructor(public app: AppComponent, private httpClient: HttpClient, private auth: AuthService, private router: Router, private formBuilder: FormBuilder) {
+    this.names = this.app.placesapp;
+ }
 
   url = "http://localhost:5001/location"
 
