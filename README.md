@@ -3,6 +3,12 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/travis/Vaishnavi06Desai/T022_Winsoft/master.svg)](https://travis-ci.org/github/T022_Winsoft)
 
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/30269d6d-2292-4651-869d-01d535efad6c" />
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/8ddeb8ba-3dc1-4641-8b2d-87728e0a5b9d" />
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/7a6a13ba-d318-437a-9898-44f2f103b18d" />
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/38724d9a-b174-442a-865d-6fc3ba88f8d8" />
+
+
 ## 📜 Overview
 
 **T022_Winsoft** is a project developed during a hackathon for a military base, designed to enhance the detection of infiltration within the base by analyzing encrypted messages. The application securely decrypts the messages to identify potentially compromised locations, then visualizes these infiltrations on a map, providing critical situational awareness for the military.
